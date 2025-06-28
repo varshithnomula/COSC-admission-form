@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Submitted</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Application Submitted</h1>
+    </header>
+    
+    <main class="confirmation">
+      <div class="success-message">
+        <h2 id="confirmationMessage">Thank you for your application!</h2>
+        <p>We have received your application and will contact you soon.</p>
+        <a href="/admission" class="btn">Submit Another Application</a>
+      </div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2023 College Admission Portal. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Get query parameters from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const course = urlParams.get('course');
+    
+    // Update confirmation message
+    if (name && course) {
+      document.getElementById('confirmationMessage').textContent = 
+        `Thank you, ${name}! You've successfully applied for the ${course} program.`;
+    }
+  </script>
+</body>
+</html>
